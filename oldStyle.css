@@ -18,7 +18,6 @@
 /* dark mode user-agent-styles */
 html {
   color-scheme: dark light;
-  min-height: 100vh;
 }
 
 /* min body height */
@@ -482,9 +481,8 @@ section {
   max-width: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto, 1fr);
-  grid-auto-rows: auto auto fr auto;
-  gap: 1em;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5em;
 
   /*** Tablet screen **/
   @media (min-width: 36em) and (max-width: 47.99875em) {
@@ -505,14 +503,13 @@ section {
 .card {
   margin: 0 auto;
   width: 100%;
-  padding: 1em;
-  grid-row: span 4;
-  display: grid;
-  grid-template-rows: subgrid;
+  padding: 1.3em;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background-color: var(--clr-neutral-100);
   box-shadow: 0px 1px 3px var(--clr-neutral-300);
-  gap: 1em;
+  gap: 1.2em;
 
   .plant-header {
     display: flex;
@@ -548,7 +545,7 @@ section {
         border-radius: 50px;
         color: var(--clr-neutral-100);
         text-transform: uppercase;
-        font-size: var(--fs-100);
+        font-size: var(--fs-200);
         font-weight: var(--fw-600);
       }
 
@@ -596,12 +593,12 @@ section {
   }
 
   h3 {
-    font-size: var(--fs-600);
+    font-size: var(--fs-700);
     font-weight: var(--fw-500);
   }
 
   p {
-    font-size: var(--fs-400);
+    font-size: var(--fs-500);
     font-weight: var(--fw-200);
     line-height: 1.4;
   }
@@ -609,10 +606,10 @@ section {
   footer {
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 0.8em;
 
     img {
-      width: 3em;
+      width: 4em;
       border: 2px solid var(--clr-neutral-800);
       border-radius: 50px;
     }
@@ -621,7 +618,6 @@ section {
       display: flex;
       flex-direction: column;
       gap: 0.2em;
-      font-size: var(--fs-200);
 
       span {
         font-weight: var(--fw-600);
@@ -635,7 +631,7 @@ section {
 /******** CTA Section ********/
 
 .cta-container {
-  margin: 3em auto 1.5em;
+  margin: 3em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -675,62 +671,3 @@ section {
 }
 
 /******** End CTA Section ********/
-
-/******** Footer ********/
-
-footer {
-  margin: 3em 0;
-  background-color: var(--clr-green-400);
-
-  .inner-wrapper {
-    margin: 4em auto;
-  }
-
-  .logo {
-    margin: 0 0 1.5em;
-    width: fit-content;
-    color: #fff;
-
-    svg {
-      width: 3em;
-      height: auto;
-      color: #fff;
-    }
-
-    span {
-      font-size: var(--fs-500);
-      font-weight: var(--fw-500);
-    }
-  }
-
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    color: var(--clr-neutral-100);
-    line-height: 1.4em;
-
-    .contact {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-              font-weight: var(--fw-600);
-
-      img {
-        width: 1em;
-      }
-
-      p {
-        font
-      }
-
-      a {
-        color: #fff;
-      }
-    }
-  }
-
-  ul {
-    display: none;
-  }
-}
