@@ -669,24 +669,62 @@ section {
   gap: 2em;
 
   /*** Desktop screen ***/
-  @media (min-width: 48em) {
+  /* @media (min-width: 48em) {
+    margin: 7em auto;
+
     flex-direction: row;
+    justify-content: center;
+    gap: 0;
+  } */
+
+  /****** Tablet screen ******/
+  @media (min-width: 36em) and (max-width: 47.99875em) {
+    max-width: 85%;
+  }
+
+  /*** Desktop screen ***/
+  @media (min-width: 48em) {
+    width: 85%;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    gap: 4em;
   }
 
   .bottom {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1em;
+    text-align: center;
+
+    /*** Desktop screen ***/
+    /* @media (min-width: 48em) {
+      text-align: left;
+    } */
 
     p {
       width: auto;
-      text-align: center;
+      /* text-align: center; */
       line-height: 1.4;
+
+      /*** Desktop screen ***/
+      @media (min-width: 48em) {
+        max-width: 65ch;
+      }
     }
 
     button {
       align-self: end;
+    }
+
+    /****** Tablet screen ******/
+    /* @media (min-width: 36em) and (max-width: 47.99875em) {
+      max-width: 100%;
+    } */
+
+    /*** Desktop screen ***/
+    @media (min-width: 48em) {
+      text-align: left;
     }
   }
 }
@@ -694,10 +732,20 @@ section {
 .seedling-icon {
   padding: 2.7em;
 
+  /*** Desktop screen ***/
+  @media (min-width: 48em) {
+    padding: 3em;
+  }
+
   svg {
     width: 5em;
     heigth: auto;
     aspect-ratio: 1 / 1;
+
+    /*** Desktop screen ***/
+    @media (min-width: 48em) {
+      width: 7em;
+    }
   }
 }
 
@@ -777,15 +825,16 @@ footer {
     @media (min-width: 48em) {
       display: flex;
       flex-direction: column;
-      gap: 2em;
+      gap: 1em;
     }
 
     li {
-      background-color: orange;
+      /* background-color: orange; */
     }
 
     a {
       color: var(--clr-neutral-100);
+      font-weight: var(--fw-600);
     }
   }
 }
