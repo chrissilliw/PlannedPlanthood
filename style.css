@@ -367,6 +367,7 @@ section {
   .bottom {
     display: flex;
     flex-direction: column;
+    justify-items: center;
     gap: 1em;
 
     h3 {
@@ -377,7 +378,8 @@ section {
 
       /*** Desktop screen ***/
       @media (min-width: 48em) {
-        font-size: var(--fs-600);
+        max-width: 20ch;
+        font-size: var(--fs-700);
         text-align: left;
       }
     }
@@ -395,6 +397,7 @@ section {
     max-width: 85%;
     flex-direction: row;
     justify-content: center;
+    gap: 0;
   }
 }
 
@@ -412,8 +415,23 @@ section {
 .planting-icon {
   padding: 2.5em;
 
+  /*** Tablet screen **/
+  @media (min-width: 36em) and (max-width: 47.99875em) {
+    padding: 3.5em;
+  }
+
+  /*** Desktop screen ***/
+  @media (min-width: 48em) {
+    padding: 4em;
+  }
+
   svg {
     width: 6.5em;
+
+    /*** Desktop screen ***/
+    @media (min-width: 48em) {
+      width: 7em;
+    }
   }
 }
 
@@ -436,21 +454,35 @@ section {
   }
 }
 
-.input-container {
+.newsletter-form {
   width: 100%;
-  /* padding: 0 0.5em; */
   display: grid;
   grid-template-areas: "input" "button";
   height: auto;
   place-items: center right;
+
+  /****** Tablet screen ******/
+  @media (min-width: 36em) and (max-width: 47.99875em) {
+    padding: 0.7em 4em;
+  }
+
+  /****** Desktop screen ******/
+  @media (min-width: 48em) {
+    max-width: 44ch;
+    /* padding: 0.7em 1em; */
+  }
 
   .newsletter-input,
   > .send-btn {
     grid-area: input;
   }
 
+  label {
+    display: none;
+  }
+
   .newsletter-input {
-    width: 100%;
+    width: inherit;
     padding: 0.7em 3em;
     /* text-align: center; */
     background-color: var(--clr-neutral-100);
@@ -461,11 +493,6 @@ section {
     &:focus {
       border: 1px solid var(--clr-green-400);
       outline: none;
-    }
-
-    /*** Desktop screen ***/
-    @media (min-width: 48em) {
-      padding: 0.7em 1em;
     }
   }
   .send-btn {
@@ -606,7 +633,7 @@ section {
     line-height: 1.4;
   }
 
-  footer {
+  .card-footer {
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -684,53 +711,81 @@ footer {
 
   .inner-wrapper {
     margin: 4em auto;
-  }
-
-  .logo {
-    margin: 0 0 1.5em;
-    width: fit-content;
-    color: #fff;
-
-    svg {
-      width: 3em;
-      height: auto;
-      color: #fff;
-    }
-
-    span {
-      font-size: var(--fs-500);
-      font-weight: var(--fw-500);
-    }
-  }
-
-  .footer-content {
     display: flex;
-    flex-direction: column;
-    gap: 1em;
-    color: var(--clr-neutral-100);
-    line-height: 1.4em;
+    justify-content: space-between;
+  }
 
-    .contact {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-              font-weight: var(--fw-600);
+  .footer-info {
+    height: 100%;
+    .logo {
+      margin: 0 0 1.5em;
+      width: fit-content;
+      color: #fff;
 
-      img {
-        width: 1em;
-      }
-
-      p {
-        font
-      }
-
-      a {
+      svg {
+        width: 3em;
+        height: auto;
         color: #fff;
       }
+
+      span {
+        font-size: var(--fs-500);
+        font-weight: var(--fw-500);
+      }
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      color: var(--clr-neutral-100);
+      line-height: 1.4em;
+
+      p {
+        max-width: 40ch;
+
+        /****** Tablet & Desktop screen ******/
+        @media (min-width: 36em) {
+          max-width: 45ch;
+        }
+      }
+
+      .contact {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        font-weight: var(--fw-600);
+
+        img {
+          width: 1em;
+        }
+
+        p {
+          /* max-width: 3ch; */
+        }
+
+        a {
+          color: #fff;
+        }
+      }
     }
   }
 
-  ul {
+  .footer-menu {
     display: none;
+
+    @media (min-width: 48em) {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+
+    li {
+      background-color: orange;
+    }
+
+    a {
+      color: var(--clr-neutral-100);
+    }
   }
 }
