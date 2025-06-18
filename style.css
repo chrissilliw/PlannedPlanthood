@@ -190,23 +190,38 @@ header {
 }
 
 nav {
-  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   .hamburger-menu {
+    padding: 1em;
     width: max-content;
     display: flex;
     flex-direction: column;
     gap: 0.3em;
     cursor: pointer;
+    outline: none;
+    border: none;
+    transition: padding 200ms ease-in-out;
 
     /*** Desktop screen **/
     @media (min-width: 48em) {
       display: none;
     }
+
+    @media (min-width: 36em) {
+      &:hover {
+        background-color: var(--clr-green-400);
+      }
+    }
+
+    /* @media (max-width: 36em) {
+      &:hover {
+        background-color: transparent;
+      }
+    } */
   }
 
   .hamburger-menu::before,
@@ -219,11 +234,34 @@ nav {
     border-radius: 9999px;
     transform-origin: left center;
     transition: 200ms ease-in-out;
+
+    @media (min-width: 36em) {
+      &:hover {
+        background-color: var(--clr-neutral-100);
+      }
+    }
+
+    /* @media (max-width: 36em) {
+      &:hover {
+        background-color: var(--clr-green-400);
+      }
+    } */
+  }
+
+  .hamburger-menu:hover::before,
+  .hamburger-menu:hover::after {
+    @media (min-width: 36em) {
+      background-color: var(--clr-neutral-100);
+    }
   }
 
   .hamburger-menu input {
     appearance: none;
     pointer-events: none;
+  }
+
+  .hamburger-menu:has(input:checked) {
+    padding: 1em 0.5em 1em 1em;
   }
 
   .hamburger-menu input:checked {
@@ -263,8 +301,8 @@ nav {
   text-transform: uppercase;
 }
 
-@media (min-width: 35em) {
-}
+/* @media (min-width: 35em) {
+} */
 
 main {
   width: 100%;
@@ -280,20 +318,28 @@ main {
 }
 
 .desktop-menu-wrapper {
-  height: 100%;
-  background-color: lightblue;
   display: none;
 
   ul {
     display: flex;
-    gap: 4em;
+    gap: 1em;
 
     li {
-      height: 100%;
+      transition: 200ms ease-in-out;
+
       a {
-        /* paddiavg: 0 2em; */
-        background-color: pink;
+        display: block;
+        padding: 1em 2em;
         text-transform: uppercase;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:hover {
+        background-color: var(--clr-green-400);
+        color: var(--clr-green-400);
       }
     }
   }
@@ -417,7 +463,7 @@ section {
     justify-items: center;
     gap: 1em;
 
-    h3 {
+    h2 {
       text-align: center;
       font-size: var(--fs-700);
       font-weight: var(--fw-600);
