@@ -640,7 +640,7 @@ section {
       width: 100%;
       height: auto;
       display: grid;
-      grid-template-areas: ".plant-image" ".plant-icon";
+      grid-template-areas: "plant-image" "plant-icon";
       place-items: center;
 
       .plant-image,
@@ -849,7 +849,7 @@ section {
 
   svg {
     width: 5em;
-    heigth: auto;
+    height: auto;
     aspect-ratio: 1 / 1;
 
     /*** Desktop screen ***/
