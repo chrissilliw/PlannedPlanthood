@@ -402,7 +402,6 @@ section {
 
   .image-card {
     background-color: lightblue;
-    border: 1px solid #000;
     aspect-ratio: 1 / 1;
 
     img {
@@ -637,20 +636,40 @@ section {
     flex-direction: column;
     gap: 1em;
 
-    img {
+    .plant-image-container {
       width: 100%;
       height: auto;
+      display: grid;
+      grid-template-areas: ".plant-image" ".plant-icon";
+      place-items: center;
 
-      /*** Tablet screen **/
-      @media (min-width: 36em) and (max-width: 57.99875em) {
-        aspect-ratio: 1 /1;
-        object-fit: cover;
+      .plant-image,
+      > .plant-icon {
+        grid-area: plant-image;
       }
 
-      /*** Desktop screen **/
-      @media (min-width: 58em) {
-        aspect-ratio: 4 / 5;
+      .plant-icon {
+        width: auto;
+        opacity: 0.5;
+      }
+
+      figure > img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5 / 4;
         object-fit: cover;
+
+        /*** Tablet screen **/
+        @media (min-width: 36em) and (max-width: 57.99875em) {
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+        }
+
+        /*** Desktop screen **/
+        @media (min-width: 58em) {
+          aspect-ratio: 4 / 5;
+          object-fit: cover;
+        }
       }
     }
 
